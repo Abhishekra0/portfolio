@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Abhishek Kumar — Portfolio | IIT Guwahati" />
+  <title>Abhishek Kumar — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b0d; --card:#111214; --muted:#bfc7cf; --accent:#00bcd4; --glass: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Poppins,system-ui,Segoe UI,Arial; background:var(--bg); color:#e6eef6; line-height:1.5; padding-top:80px;
+    }
+    header{position:fixed;left:0;right:0;top:0;backdrop-filter:blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-bottom:1px solid rgba(255,255,255,0.03);z-index:50}
+    .nav-wrap{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:44px;height:44px;border-radius:8px;object-fit:cover;border:2px solid var(--accent)}
+    .brand h1{font-size:1rem;margin:0;font-weight:600}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:500}
+    .cta{background:var(--accent);color:#021018;padding:8px 12px;border-radius:8px;font-weight:700;text-decoration:none}
+    .hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer}
+    .hamburger span{width:22px;height:2px;background:var(--muted);display:block;border-radius:2px}
+    .hero{max-width:1100px;margin:30px auto;padding:24px;color:#dff6fb;display:grid;grid-template-columns:1fr 360px;gap:30px}
+    .intro h2{font-size:2rem;margin:0 0 8px}
+    .intro p{color:var(--muted);margin:0 0 16px}
+    .badges{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{background:var(--glass);padding:8px 10px;border-radius:999px;color:var(--muted);font-weight:600;font-size:0.85rem}
+    .profile-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;text-align:center;border:1px solid rgba(255,255,255,0.03)}
+    .profile-card img{width:160px;height:160px;border-radius:50%;object-fit:cover;border:3px solid var(--accent)}
+    .profile-card h3{margin:12px 0 6px}
+    .socials{display:flex;gap:10px;justify-content:center;margin-top:8px}
+    .socials a{color:var(--muted);text-decoration:none;font-weight:600}
+    .stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .stat{background:#0e1112;padding:12px;border-radius:10px;min-width:110px;text-align:center}
+    .stat strong{display:block;font-size:1.05rem}
+    .stat small{color:var(--muted)}
+    .section{max-width:1100px;margin:18px auto;padding:24px}
+    .section h3{color:var(--accent);margin:0 0 16px}
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .project{background:var(--card);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:8px}
+    .project img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+    .project h4{margin:4px 0;color:#eaffff;font-size:1rem}
+    .project p{color:var(--muted);font-size:0.92rem;margin:0}
+    .project-links{display:flex;gap:8px;margin-top:auto}
+    .link-btn{padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted);text-decoration:none;font-weight:600}
+    .ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    .contact-card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .contact-card a{color:var(--accent);text-decoration:none;font-weight:600}
+    footer{max-width:1100px;margin:40px auto 80px;text-align:center;color:var(--muted)}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.hamburger{display:flex}nav{position:fixed;right:18px;top:62px;background:#071018;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);flex-direction:column;display:none}nav.show{display:flex}}
+    .fade{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+    .fade.show{opacity:1;transform:none}
+    a:focus{outline:3px solid rgba(0,188,212,0.15);outline-offset:3px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap">
+      <div class="brand">
+        <img src="profile.jpg" alt="Abhishek photo" loading="lazy" onerror="this.style.display='none'">
+        <h1>Abhishek Kumar</h1>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <nav id="site-nav" aria-label="Primary navigation">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#achievements">Achievements</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="cta" href="Abhishek%20kumar%20220122002.pdf" download>Resume</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="intro fade" id="about">
+        <h2>Hi, I'm <span style="color:var(--accent)">Abhishek Kumar</span></h2>
+        <p>Full-Stack Developer • Competitive Programmer • B.Tech — Chemical Science & Technology, IIT Guwahati.</p>
+   
+      </div>
+      <aside class="profile-card fade">
+        <img src="profile.jpg" alt="Abhishek Kumar" loading="lazy" onerror="this.style.display='none'">
+        <h3>Abhishek Kumar</h3>
+        <div style="color:var(--muted);font-size:0.95rem">IIT Guwahati — B.Tech (Chemical Science & Technology)</div>
+        <div class="stats" role="list">
+          <div class="stat" role="listitem"><strong>650+</strong><small>DSA problems</small></div>
+          <div class="stat" role="listitem"><strong>1321</strong><small>Codeforces</small></div>
+          <div class="stat" role="listitem"><strong>726</strong><small>CodeChef Rank</small></div>
+        </div>
+        <div class="socials">
+          <a href="mailto:abhishek.kmr@iitg.ac.in">Email</a>
+          <a href="https://github.com/Abhishekra0" target="_blank">GitHub</a>
+        </div>
+      </aside>
+    </section>
+    <section class="section fade" id="projects">
+      <h3>Selected Projects</h3>
+      <div class="projects-grid">
+        <article class="project">
+          <img src="./images/jet-ease.png" alt="JetEase screenshot" loading="lazy" onerror="this.style.background='#0d0d0f'">
+          <h4>JetEase — Airline Management</h4>
+          <p>Flight search, booking flow and admin dashboard. Implemented smooth UX and payment integration.</p>
+          <div class="project-links">
+            <a class="link-btn" href="https://github.com/Abhishekra0/air-plane" target="_blank">Code</a>
+          </div>
+        </article>
+        <article class="project">
+          <img src="./images/chhappanbhog.png" alt="ChhappanBhog screenshot" loading="lazy" onerror="this.style.background='#0d0d0f'">
+          <h4>ChhappanBhog — Recipe Sharing</h4>
+          <p>Share and discover recipes with search & bookmarking features. Focused on responsive UI and search performance.</p>
+          <div class="project-links">
+            <a class="link-btn" href="https://github.com/Abhishekra0/chhappan-bhog" target="_blank">Code</a>
+          </div>
+        </article>
+        <article class="project">
+          <img src="./images/smartlearn.png" alt="SmartLearn screenshot" loading="lazy" onerror="this.style.background='#0d0d0f'">
+          <h4>SmartLearn — AI Learning Platform</h4>
+          <p>Quizzes, subject modules and a Gemini-powered Q/A assistant for students.</p>
+          <div class="project-links">
+            <a class="link-btn" href="https://github.com/Abhishekra0/SmartLearn" target="_blank">Code</a>
+          </div>
+        </article>
+        <article class="project">
+          <img src="./images/phonebook.png" alt="PhoneBook screenshot" loading="lazy" onerror="this.style.background='#0d0d0f'">
+          <h4>PhoneBook — Contact Manager</h4>
+          <p>Console-based C++ app with persistent storage and a clean CLI UX for fast operations.</p>
+          <div class="project-links">
+            <a class="link-btn" href="https://github.com/Abhishekra0/PhoneBook" target="_blank">Code</a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="section fade" id="achievements">
+      <h3>Achievements & Highlights</h3>
+      <div class="ach-grid">
+        <div class="contact-card">Solved <strong>650+</strong> DSA problems across platforms.</div>
+        <div class="contact-card">Codeforces: <strong>1321</strong> (Pupil)</div>
+        <div class="contact-card">CodeChef: <strong>Global Rank 726</strong> in Starter 202</div>
+        <div class="contact-card">National level chess participant & multiple sports medals (IITG)</div>
+      </div>
+    </section>
+    <section class="section fade" id="contact">
+      <h3>Get in touch</h3>
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start">
+        <form class="contact-card" onsubmit="handleContact(event)">
+          <label for="name">Name</label>
+          <input id="name" name="name" required style="width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:#09090b;color:#e6eef6">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required style="width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:#09090b;color:#e6eef6">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required style="width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:#09090b;color:#e6eef6"></textarea>
+          <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:8px">
+            <button type="submit" class="link-btn">Send</button>
+          </div>
+        </form>
+        <aside class="contact-card">
+          <h4 style="margin-top:0">Contact</h4>
+          <p style="color:var(--muted)">Email: <a href="mailto:abhishek.kmr@iitg.ac.in">abhishek.kmr@iitg.ac.in</a></p>
+          <p style="color:var(--muted)">Phone: +91-7007870957</p>
+          <p style="color:var(--muted)">LinkedIn: <a href="https://linkedin.com/in/abhishek-Kumar1289" target="_blank">/abhishek-Kumar1289</a></p>
+          <p style="color:var(--muted)">GitHub: <a href="https://github.com/Abhishekra0" target="_blank">@Abhishekra0</a></p>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer>
+    Built with ❤ — Abhishek Kumar • <span style="color:var(--muted)">IIT Guwahati</span>
+  </footer>
+  <script>
+    (function(){
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); });
+      },{threshold:0.15});
+      document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+    })();
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('site-nav');
+    hamburger?.addEventListener('click', ()=>{
+      const open = nav.classList.toggle('show');
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    function handleContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent('Portfolio Contact from ' + name);
+      const body = encodeURIComponent(`${message}\n\n--\n${name}\n${email}`);
+      window.location.href = `mailto:abhishek.kmr@iitg.ac.in?subject=${subject}&body=${body}`;
+    }
+  </script>
+</body>
+</html>
