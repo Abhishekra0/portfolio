@@ -61,7 +61,15 @@
     .stat strong{display:block;font-size:1.05rem}
     .stat small{color:var(--muted)}
     .section{max-width:1100px;margin:18px auto;padding:24px}
-    .section h3{color:var(--accent);margin:0 0 16px}
+    .section h3 {
+      color: var(--accent);        /* Glowing blue accent color */
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      font-size: 1.35rem;
+      margin: 0 0 16px;
+      text-shadow: 0 0 8px #00bcd4aa;
+    }
     .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
     .project {
       background: var(--card); /* solid background */
@@ -90,29 +98,28 @@
     .fade{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
     .fade.show{opacity:1;transform:none}
     a:focus{outline:3px solid rgba(0,188,212,0.15);outline-offset:3px}
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    .skills-row {
+      display: flex;
+      flex-wrap: wrap;
       gap: 16px;
-      margin-top: 10px;
+      justify-content: center;
+      align-items: center;
       margin-bottom: 10px;
-      justify-items: stretch;
     }
-    .skills-grid .badge {
-      background: var(--card); /* solid, not transparent */
-      color: var(--accent);
+    .skills-row .badge {
+      background: var(--card);
+      color: #eaffff; /* Brighter text for skills/courses */
       font-weight: 600;
       font-size: 1rem;
-      padding: 18px 0;
-      border-radius: 12px;
+      padding: 14px 18px;
+      border-radius: 999px;
       letter-spacing: 0.02em;
       box-shadow: 0 1px 4px 0 rgba(0,188,212,0.04);
       text-align: center;
-      width: 100%;
-      min-height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
+      min-height: 44px;
     }
   </style>
 </head>
@@ -131,7 +138,7 @@
           <a href="#achievements">Achievements</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a class="cta" href="Abhishek%20kumar%20220122002.pdf" download>Resume</a>
+        <a class="cta" href="Abhishek%20kumar.pdf" download>Resume</a>
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -155,8 +162,9 @@
           <div class="stat" role="listitem"><strong>726</strong><small>CodeChef Rank</small></div>
         </div>
         <div class="socials">
-          <a href="mailto:abhishek.kmr@iitg.ac.in">Email</a>
-          <a href="https://github.com/Abhishekra0" target="_blank">GitHub</a>
+          <a class="link-btn" href="https://linkedin.com/in/abhishek-Kumar1289" target="_blank">LinkedIn</a>
+          <a class="link-btn" href="https://github.com/Abhishekra0" target="_blank">GitHub</a>
+
         </div>
       </aside>
     </section>
@@ -208,21 +216,24 @@
     </section>
     <!-- Skills Section Start -->
     <section class="section fade" id="skills">
-      <h3>Skills</h3>
-      <div class="skills-grid">
+      <h3>Technical Skills</h3>
+      <div class="skills-row">
         <span class="badge">C++</span>
-
-        <span class="badge">JavaScript</span>
-        <span class="badge">React</span>
-        <span class="badge">Node.js</span>
-        <span class="badge">Express</span>
-        <span class="badge">MongoDB</span>
         <span class="badge">HTML</span>
         <span class="badge">CSS</span>
-        <span class="badge">Git & GitHub</span>
-        <span class="badge">DSA</span>
-        <span class="badge">Competitive Programming</span>
-       
+        <span class="badge">Javascript</span>
+        <span class="badge">React.js</span>
+        <span class="badge">MySQL</span>
+        <span class="badge">MongoDB</span>
+      </div>
+      <h3 style="margin-top:28px;">Relevant Courses</h3>
+      <div class="skills-row">
+        <span class="badge">Data Structures and Algorithms (DSA)</span>
+        <span class="badge">Web Development</span>
+        <span class="badge">Computer Programming (Theory &amp; Lab)</span>
+        <span class="badge">Object Oriented Programming</span>
+        <span class="badge">Operating System</span>
+        <span class="badge">Database Management</span>
       </div>
     </section>
     <!-- Skills Section End -->
